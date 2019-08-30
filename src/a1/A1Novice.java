@@ -14,13 +14,13 @@ public class A1Novice {
 		
 		int name_count = scan.nextInt();
 		
-		for (int i = 0; i < name_count; i++ ) {
+		for (int i = 0; i <= name_count; i++ ) {
 			
 			String first_name = scan.next(); 
 			
 			char[] first_name_arr = first_name.toCharArray();
 			
-			String first_init = first_name_arr[1] + ".";
+			String first_init = first_name_arr[0] + ".";
 			
 			String last_name = scan.next();
 			
@@ -30,6 +30,7 @@ public class A1Novice {
 			
 			for (int u = 0; u < food_count; u++ ) {
 				int amt = scan.nextInt();
+				String food_name = scan.next();
 				double price = scan.nextDouble() * amt;
 				total += price; 
 				

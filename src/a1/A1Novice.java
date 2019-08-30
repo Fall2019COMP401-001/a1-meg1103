@@ -40,7 +40,7 @@ public class A1Novice {
 			if (Math.abs(total - Math.round(total)) == 0) {
 				System.out.println(first_init + " " + last_name + ": " + df.format(total) + ".00");
 			} else if (Math.abs((total * 10) - Math.round(total * 10)) == 0) {
-				System.out.println(first_init + " " + last_name + ": " + df.format(total) + ".0");
+				System.out.println(first_init + " " + last_name + ": " + df.format(total) + "0");
 			} else {
 				System.out.println(first_init + " " + last_name + ": " + df.format(total));
 			}

@@ -1,5 +1,6 @@
 package a1;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class A1Adept {
@@ -7,6 +8,7 @@ public class A1Adept {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
+		DecimalFormat df = new DecimalFormat("##.##");
 
 		// Your code follows here.
 		
@@ -74,8 +76,25 @@ public class A1Adept {
 			}
 		}
 		
-		System.out.println("Biggest: " + shopper_first_arr[biggest_index] + " " + shopper_last_arr[biggest_index] + 
-				" (" + shopper_total_arr[biggest_index] + ")");	
+		double biggest_total = shopper_total_arr[biggest_index];
+		
+		if (Math.abs(biggest_total - Math.round(biggest_total)) == 0) {
+			
+			System.out.println("Biggest: " + shopper_first_arr[biggest_index] + " " + shopper_last_arr[biggest_index] + 
+					" (" + df.format(biggest_total) + ".00)");	
+			
+		} else if (Math.abs((biggest_total * 10) - Math.round(biggest_total * 10)) == 0) {
+			
+			System.out.println("Biggest: " + shopper_first_arr[biggest_index] + " " + shopper_last_arr[biggest_index] + 
+					" (" + df.format(biggest_total) + "0)");	
+			
+		} else {
+			
+			System.out.println("Biggest: " + shopper_first_arr[biggest_index] + " " + shopper_last_arr[biggest_index] + 
+					" (" + df.format(biggest_total) + ")");	
+			
+		}
+		
 		
 		int smallest_index = 0;
 		
@@ -85,10 +104,47 @@ public class A1Adept {
 			}
 		}
 		
-		System.out.println("Smallest: " + shopper_first_arr[smallest_index] + " " + shopper_last_arr[smallest_index] + 
-				" (" + shopper_total_arr[smallest_index] + ")");
+		double smallest_total = shopper_total_arr[smallest_index];
+		
+		if (Math.abs(smallest_total - Math.round(smallest_total)) == 0) {
+			
+			System.out.println("Smallest: " + shopper_first_arr[smallest_index] + " " + shopper_last_arr[smallest_index] + 
+					" (" + df.format(smallest_total) + ".00)");	
+			
+		} else if (Math.abs((smallest_total * 10) - Math.round(smallest_total * 10)) == 0) {
+			
+			System.out.println("Smallest: " + shopper_first_arr[smallest_index] + " " + shopper_last_arr[smallest_index] + 
+					" (" + df.format(smallest_total) + "0)");	
+			
+		} else {
+			
+			System.out.println("Smallest: " + shopper_first_arr[smallest_index] + " " + shopper_last_arr[smallest_index] + 
+					" (" + df.format(smallest_total) + ")");
+			
+		}
 		
 		
+		double total_spent = 0;
+		
+		for (int i = 0; i < num_shoppers; i++) {
+			total_spent += shopper_total_arr[i];
+		}
+		double average = total_spent / num_shoppers;
+		
+		
+		if (Math.abs(average - Math.round(average)) < .0001) {
+			
+			System.out.println("Average: " + df.format(average) + ".00");	
+			
+		} else if (Math.abs((average * 10) - Math.round(average * 10)) < 0.0001) {
+			
+			System.out.println("Average: " + df.format(average) + "0");	
+			
+		} else {
+			
+			System.out.println("Average: " + df.format(average));
+			
+		}
 		
 	}
 }

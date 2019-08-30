@@ -1,6 +1,7 @@
 package a1;
 
 import java.util.Scanner;
+import java.text.DecimalFormat;
 
 public class A1Novice {
 
@@ -34,8 +35,17 @@ public class A1Novice {
 				double price = scan.nextDouble() * amt;
 				total += price; 
 				
+			} 
+			DecimalFormat df = new DecimalFormat("##.##");
+			if (Math.abs(total - Math.round(total)) == 0) {
+				System.out.println(first_init + " " + last_name + ": " + df.format(total) + ".00");
+			} else if (Math.abs((total * 10) - Math.round(total * 10)) == 0) {
+				System.out.println(first_init + " " + last_name + ": " + df.format(total) + ".0");
+			} else {
+				System.out.println(first_init + " " + last_name + ": " + df.format(total));
 			}
-			System.out.println(first_init + " " + last_name + ": " + total);
+			
+			
 			
 		}
 		

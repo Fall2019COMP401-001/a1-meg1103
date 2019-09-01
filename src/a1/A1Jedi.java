@@ -62,12 +62,12 @@ public class A1Jedi {
 			}
 			
 			
-			for (int u = 0; u < num_types_food; u++) {
+			/*for (int u = 0; u < num_types_food; u++) {
 				if ((shopper_quantity_arr[i] - test_shopper_quantity_arr[i] != 0)) {
 					shopper_quantity_arr[i] = test_shopper_quantity_arr[i];
 				}
 	
-			} 
+			}  */
 			
 	
 		}
